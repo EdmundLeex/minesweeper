@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Game
 
   def initialize
@@ -21,12 +23,12 @@ class Board
   attr_reader :pos_taken
 
   def initialize
-    @grid = Board.populate
+    @grid = make_grid
     @pos_taken = []
   end
 
   def populate
-
+    
   end
 
   def place_bomb
@@ -43,22 +45,17 @@ class Board
 
   def adj_pos(pos)
     x, y = pos
-    arr = [
-      [x - 1, y + 1],
-      [x, y + 1],
-      [x + 1, y + 1],
-      [x + 1, y],
-      [x + 1, y - 1],
-      [x, y - 1],
-      [x - 1, y - 1],
-      [x - 1, y]
-    ]
+    arr = []
 
-    arr.reject do |pos|
-      x, y = pos
-      x < 0 || y < 0 || x > size - 1 || y > size - 1
+    (-1..1).to_a.each do |i|
+      (-1..1).to_a.each do |j|
+        new_pos = [x + i, y + j]
+        unless new_pos.any? { |cor| cor < 0 || cor > size } || pos == new_pos
+          arr << [new_x, new_y]
+        end
+      end
     end
-
+    arr
   end
 
   def [](pos)
@@ -72,7 +69,7 @@ class Board
   end
 
   def make_grid(size = 9)
-    @grid = Array.new(size) { Array.new(size) }
+    Array.new(size) { Array.new(size) }
   end
 
   def win?
