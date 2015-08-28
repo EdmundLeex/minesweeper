@@ -43,14 +43,22 @@ class Board
 
   def adj_pos(pos)
     x, y = pos
-    arr = []
+    arr = [
+      [x - 1, y + 1],
+      [x, y + 1],
+      [x + 1, y + 1],
+      [x + 1, y],
+      [x + 1, y - 1],
+      [x, y - 1],
+      [x - 1, y - 1],
+      [x - 1, y]
+    ]
 
-    (-1..1).to_a.each do |i|
-      (-1..1).to_a.each do |j|
-        arr << [x + i, y + j] if ((x + i).abs + (y + j).abs) <= 2
-      end
+    arr.reject do |pos|
+      x, y = pos
+      x < 0 || y < 0 || x > size - 1 || y > size - 1
     end
-    
+
   end
 
   def [](pos)
@@ -70,6 +78,10 @@ class Board
   def win?
 
   end
+
+  private
+
+  attr_reader :size
 
 end
 
