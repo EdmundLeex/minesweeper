@@ -76,12 +76,12 @@ class Board
   end
 
   def won?
-    @grid.all? do |row|
-      row.all? do |tile|
-        tile.value != "B" && tile.is_revealed?
+    @grid.each do |row|
+      row.each do |tile|
+        next if tile.value == "B"
+        return false unless tile.is_revealed?
       end
     end
-    "You won!!!"
     true
   end
 
@@ -91,8 +91,12 @@ class Board
       print '|'
       row.each do |tile|
         content = '*'
-        content = tile.value.to_s if tile.is_revealed?
-        content = ' ' if content == '0'
+        if tile.is_revealed?
+          content = tile.value.to_s
+          content = ' ' if content == '0'
+        else
+          content = 'f' if tile.flagged?
+        end
         print " #{content} |"
       end
       print "\n"
