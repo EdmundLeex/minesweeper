@@ -3,15 +3,16 @@ class Tile
 
   def initialize(val = 0)
     @value = val
-    @revealed = false
+    @revealed = true
     @flag = false
   end
 
   def reveal
     @revealed = true
+    value
   end
 
-  def revealed?
+  def is_revealed?
     @revealed
   end
 

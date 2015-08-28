@@ -75,12 +75,39 @@ class Board
     Array.new(grid_size) { Array.new(grid_size) }
   end
 
-  def win?
+  def won?
+    @grid.all? do |row|
+      row.all? do |tile|
+        tile.value != "B" && tile.is_revealed?
+      end
+    end
+    "You won!!!"
+    true
+  end
 
+  def render
+    puts "-" * (4 * grid_size + 1)
+    @grid.each do |row|
+      print '|'
+      row.each do |tile|
+        content = '*'
+        content = tile.value.to_s if tile.is_revealed?
+        content = ' ' if content == '0'
+        print " #{content} |"
+      end
+      print "\n"
+      puts "-" * (4 * grid_size + 1)
+    end
+
+    true
   end
 
   private
 
   attr_reader :grid_size
+
+  def inspect
+    true
+  end
 
 end
