@@ -1,25 +1,30 @@
-
+require 'byebug'
+require './tile'
 class Board
-  attr_reader :pos_taken
+  attr_reader :pos_taken, :grid
 
-  def initialize
-    @grid = make_grid
+  def initialize(grid_size = 9)
+    @grid_size = grid_size
+    @grid = make_grid(grid_size)
     @pos_taken = []
+    place_bombs
+    populate
   end
 
   def populate
     @grid.each do |row|
       row.each do |cell|
-        if cell.empty?
+        if cell.nil?
           cell = Tile.new
+        end
       end
     end
   end
 
-  def place_bomb
+  def place_bombs
   #randomly puts bomb into grid
-    until pos_taken.size == 10
-      pos = [rand(size), rand(size)]
+    until @pos_taken.size == 10
+      pos = [rand(grid_size), rand(grid_size)]
 
       unless pos_taken.include?(pos)
         pos_taken << pos
@@ -35,7 +40,7 @@ class Board
     (-1..1).to_a.each do |i|
       (-1..1).to_a.each do |j|
         new_pos = [x + i, y + j]
-        unless new_pos.any? { |cor| cor < 0 || cor > size } || pos == new_pos
+        unless new_pos.any? { |cor| cor < 0 || cor > grid_size - 1 } || pos == new_pos
           arr << [new_x, new_y]
         end
       end
@@ -53,8 +58,8 @@ class Board
     @grid[x][y] = val
   end
 
-  def make_grid(size = 9)
-    Array.new(size) { Array.new(size) }
+  def make_grid(grid_size)
+    Array.new(grid_size) { Array.new(grid_size) }
   end
 
   def win?
@@ -63,6 +68,6 @@ class Board
 
   private
 
-  attr_reader :size
+  attr_reader :grid_size
 
 end

@@ -1,7 +1,7 @@
 class Tile
   attr_reader :value
 
-  def initialize(val)
+  def initialize(val = 0)
     @value = val
   end
 
