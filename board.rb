@@ -86,9 +86,13 @@ class Board
   end
 
   def render
-    puts "-" * (4 * grid_size + 1)
-    @grid.each do |row|
-      print '|'
+    # puts "| 0 | 1 | 2 |"
+    print '  |'
+    (0...grid_size).to_a.each { |n| print " #{n} |" }
+    print "\n"
+    puts "-" * (4 * grid_size + 3)
+    @grid.each_with_index do |row, i|
+      print "#{i} |"
       row.each do |tile|
         content = '*'
         if tile.is_revealed?
@@ -100,7 +104,7 @@ class Board
         print " #{content} |"
       end
       print "\n"
-      puts "-" * (4 * grid_size + 1)
+      puts "-" * (4 * grid_size + 3)
     end
 
     true
