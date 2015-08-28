@@ -7,15 +7,18 @@ class Board
     @grid_size = grid_size
     @grid = make_grid(grid_size)
     @pos_taken = []
-    place_bombs
-    populate
+    populate_grid
+    # pop_bomb_count
   end
 
-  def populate
-    @grid.each do |row|
-      row.each do |cell|
-        if cell.nil?
-          cell = Tile.new
+  def populate_grid
+    place_bombs
+    @grid.each_with_index do |row, i|
+      row.each_index do |j|
+        pos = [i, j]
+        if self[pos].nil?
+          self[pos] = tile = Tile.new
+          bomb_count(pos)
         end
       end
     end
@@ -33,6 +36,16 @@ class Board
     end
   end
 
+  def bomb_count(pos)
+    tile = self[pos]
+    adj_pos(pos).each do |cor|
+      # debugger
+      if !self[cor].nil? && self[cor].value == "B"
+        tile.value += 1
+      end
+    end
+  end
+
   def adj_pos(pos)
     x, y = pos
     arr = []
@@ -41,7 +54,7 @@ class Board
       (-1..1).to_a.each do |j|
         new_pos = [x + i, y + j]
         unless new_pos.any? { |cor| cor < 0 || cor > grid_size - 1 } || pos == new_pos
-          arr << [new_x, new_y]
+          arr << new_pos
         end
       end
     end
