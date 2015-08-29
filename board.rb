@@ -33,8 +33,24 @@ class Board
     true
   end
 
+  def detonate
+    grid.each do |row|
+      row.each do |tile|
+        tile.reveal if tile.value == 'B'
+      end
+    end
+    self
+  end
+
   def flag(cor)
-    self[cor].flagged? ? @num_of_flags -= 1 : @num_of_flags += 1
+    if self[cor].flagged?
+      @num_of_flags -= 1
+      @num_of_bombs += 1
+    else
+      @num_of_flags += 1
+      @num_of_bombs -= 1
+    end
+
     self[cor].flag
   end
 

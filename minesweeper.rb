@@ -79,7 +79,7 @@ class Game
   def game_over
     puts "BOMB!!!!!!**********!!!!!!!"
     system('clear')
-    @board.render
+    @board.detonate.render
     Kernel.abort("You're done!!!")
   end
 
