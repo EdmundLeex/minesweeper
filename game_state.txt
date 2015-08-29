@@ -7,14 +7,6 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 2
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: B
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
       value: 1
       revealed: false
       flag: false
@@ -23,11 +15,11 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 2
+      value: 1
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: B
+      value: 1
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -38,8 +30,40 @@ board: !ruby/object:Board
       value: 0
       revealed: false
       flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
   - - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
       value: B
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: B
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -50,7 +74,7 @@ board: !ruby/object:Board
       value: 1
       revealed: false
       flag: false
-    - !ruby/object:Tile
+  - - !ruby/object:Tile
       value: 1
       revealed: false
       flag: false
@@ -59,7 +83,15 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: B
+      value: 1
+      revealed: true
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -67,123 +99,59 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 2
+      value: B
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-  - - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
+      value: B
       revealed: false
       flag: false
     - !ruby/object:Tile
       value: 2
       revealed: false
       flag: false
+  - - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
+      revealed: false
+      flag: false
     - !ruby/object:Tile
       value: B
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-  - - !ruby/object:Tile
-      value: 1
+      value: 5
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-  - - !ruby/object:Tile
       value: B
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
+      value: 2
       revealed: false
       flag: false
   - - !ruby/object:Tile
-      value: 1
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -191,6 +159,30 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 3
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: B
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 4
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
+      revealed: false
+      flag: false
+  - - !ruby/object:Tile
       value: 0
       revealed: false
       flag: false
@@ -207,67 +199,7 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: B
-      revealed: false
-      flag: false
-  - - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 1
-      revealed: false
-      flag: false
-  - - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: 0
+      value: 2
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -279,7 +211,75 @@ board: !ruby/object:Board
       revealed: true
       flag: false
     - !ruby/object:Tile
+      value: B
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+  - - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
       value: 2
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 2
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+  - - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: 1
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
+      value: B
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -307,15 +307,15 @@ board: !ruby/object:Board
       revealed: false
       flag: false
     - !ruby/object:Tile
+      value: 0
+      revealed: false
+      flag: false
+    - !ruby/object:Tile
       value: 1
       revealed: false
       flag: false
     - !ruby/object:Tile
-      value: B
-      revealed: false
-      flag: false
-    - !ruby/object:Tile
-      value: B
+      value: 1
       revealed: false
       flag: false
     - !ruby/object:Tile
@@ -324,26 +324,5 @@ board: !ruby/object:Board
       flag: false
     - !ruby/object:Tile
       value: 0
-      revealed: false
+      revealed: true
       flag: false
-  pos_taken:
-  - - 0
-    - 2
-  - - 8
-    - 6
-  - - 1
-    - 0
-  - - 8
-    - 5
-  - - 5
-    - 8
-  - - 0
-    - 6
-  - - 5
-    - 5
-  - - 4
-    - 0
-  - - 2
-    - 7
-  - - 1
-    - 5
