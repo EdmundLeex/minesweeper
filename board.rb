@@ -1,27 +1,30 @@
 require 'byebug'
 require './tile'
+require 'colorize'
+
 class Board
-  attr_reader :grid
 
   def initialize(grid_size = 9)
     @grid_size = grid_size
     @grid = make_grid(grid_size)
+    @num_of_bombs = grid_size ** 2 * rand(12..15) / 100
+    @num_of_flags = 0
     populate_grid
     # pop_bomb_count
   end
 
   def [](pos)
     x, y = pos
-    @grid[x][y]
+    grid[x][y]
   end
 
   def []=(pos, val)
     x, y = pos
-    @grid[x][y] = val
+    grid[x][y] = val
   end
 
   def won?
-    @grid.each do |row|
+    grid.each do |row|
       row.each do |tile|
         next if tile.value == "B"
         return false unless tile.is_revealed?
@@ -30,29 +33,57 @@ class Board
     true
   end
 
+  def flag(cor)
+    self[cor].flagged? ? @num_of_flags -= 1 : @num_of_flags += 1
+    self[cor].flag
+  end
+
   def render
-    # puts "| 0 | 1 | 2 |"
-    print '  |'
+    grid_width = 4 * grid_size + 3
+
+    print "Bombs: #{num_of_bombs}".ljust(grid_width / 2)
+    print "Flags: #{num_of_flags}".rjust(grid_width / 2)
+
+    print "\n\n  |"
+
     (0...grid_size).to_a.each { |n| print " #{n} |" }
     print "\n"
-    puts "-" * (4 * grid_size + 3)
-    @grid.each_with_index do |row, i|
+    puts "-" * grid_width
+    grid.each_with_index do |row, i|
       print "#{i} |"
       row.each do |tile|
         content = '*'
+
         if tile.is_revealed?
           content = tile.value.to_s
-          content = ' ' if content == '0'
         else
           content = 'f' if tile.flagged?
         end
-        print " #{content} |"
+
+        content = colorize_content(content)
+
+        print "#{content}|"
       end
       print "\n"
-      puts "-" * (4 * grid_size + 3)
+      puts "-" * grid_width
     end
 
     true
+  end
+
+  def colorize_content(content)
+    case content
+    when '0'
+      '   '
+    when 'B'
+      ' B '.colorize(:red)
+    when 'f'
+      ' f '.colorize(:yellow)
+    when '*'
+      "\e[47m   \e[0m"
+    else
+      " #{content} ".colorize(:cyan)
+    end
   end
 
   def adj_pos(pos)
@@ -69,11 +100,11 @@ class Board
   end
 
   private
-  attr_reader :grid_size
+  attr_reader :grid_size, :grid, :num_of_bombs, :num_of_flags
 
   def populate_grid
     place_bombs
-    @grid.each_with_index do |row, i|
+    grid.each_with_index do |row, i|
       row.each_index do |j|
         pos = [i, j]
         if self[pos].nil?
@@ -85,8 +116,8 @@ class Board
   end
 
   def place_bombs
-  pos_taken = []
-    until pos_taken.size == 10
+    pos_taken = []
+    until pos_taken.size == num_of_bombs
       pos = [rand(grid_size), rand(grid_size)]
 
       unless pos_taken.include?(pos)

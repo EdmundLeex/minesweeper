@@ -12,16 +12,18 @@ class Game
   end
 
   def play
-    until won?
-      play_round
-    end
+    play_round until won?
 
     puts "Won!!!"
   end
 
+  private
+
+  attr_reader :board
+
   def play_round
     system('clear')
-    @board.render
+    board.render
 
     cor, input = ask_input
 
@@ -30,7 +32,7 @@ class Game
     if input == 'r'
       reveal(cor)
     elsif input == 'f'
-      @board[cor].flag
+      @board.flag(cor)
     end
   end
 
@@ -76,6 +78,8 @@ class Game
 
   def game_over
     puts "BOMB!!!!!!**********!!!!!!!"
+    system('clear')
+    @board.render
     Kernel.abort("You're done!!!")
   end
 
