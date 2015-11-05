@@ -9,7 +9,9 @@ The classic Minesweeper game buit with Ruby
 
 ## Screenshots
 ![one]
+![two]
 [one]: ./screenshots/1.png
+[two]: ./screenshots/2.png
 
 ## Todos
 - Add difficulties
