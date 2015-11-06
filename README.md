@@ -14,5 +14,5 @@ The classic Minesweeper game buit with Ruby
 [two]: ./screenshots/2.png
 
 ## Todos
-- Add difficulties
+- Add difficulties level
 - Change control to use arrows keys
